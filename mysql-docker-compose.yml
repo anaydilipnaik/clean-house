@@ -1,0 +1,16 @@
+version: "3"
+services:
+  db:
+    image: "mysql:8.0"
+    container_name: "my_mysql"
+    environment:
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "cleaning"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./my_dbdata:/var/lib/mysql
+volumes:
+  my_dbdata:

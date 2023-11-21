@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "51e0ae06-7be4-4913-a415-23d5a6034daa",
+		"name": "cleaning-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "772537"
+	},
+	"item": [
+		{
+			"name": "Create vendor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"tester@gmail.com\",\n    \"password\": \"password\",\n    \"user_type\": \"VENDOR\",\n    \"address\": \"Stark Mansion\",\n    \"phone\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"tester@gmail.com\",\n    \"password\": \"password\",\n    \"user_type\": \"VENDOR\",\n    \"address\": \"Stark Mansion\",\n    \"phone\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@gmail.com\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create services",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"start_date\": \"2022/12/02\",\n    \"end_date\": \"2022/12/04\",\n    \"start_time\": \"10:00\",\n    \"end_time\": \"17:00\",\n    \"services\": [\n        {\n            \"service_type\": \"Kitchen Cleaning\",\n            \"location\": \"San Jose\",\n            \"price\": 234.14,\n            \"description\": \"Full kitchen deep clean\"\n        },\n        {\n            \"service_type\": \"Bathroom Cleaning\",\n            \"location\": \"San Jose\",\n            \"price\": 150.50,\n            \"description\": \"Full bathroom deep clean\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/services",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book a service",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 2,\n    \"service_id\": 1,\n    \"image\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/services/book",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update service request status",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"ACCEPTED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/services/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get services",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/services?location=San Jose&service-type=Bathroom Cleaning&date=2022/12/04",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "San Jose"
+						},
+						{
+							"key": "service-type",
+							"value": "Bathroom Cleaning"
+						},
+						{
+							"key": "date",
+							"value": "2022/12/04"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all service requests for a user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/services/requests/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services",
+						"requests",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create feedback",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 2,\n    \"service_request_id\": 1,\n    \"feedback\": \"Test feedback\",\n    \"rating\": 3,\n    \"image\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/feedback",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feedback"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
